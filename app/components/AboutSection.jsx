@@ -5,7 +5,7 @@ import TabButton from "./TabButton";
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [startTransition, isPending] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -29,16 +29,27 @@ const AboutSection = () => {
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
+              selectTab={() => handleTabChange("education")}
+              active={tab === "education"}
+            >
+              {" "}
+              Education{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("certifications")}
+              active={tab === "certifications"}
+            >
+              {" "}
+              Certifications{" "}
+            </TabButton>
+            <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
-              {" "}
-            </TabButton>
-            <span className="mr-3 font-semibold hover:text-white text-[#ADB7BE] border-b border-purple-500 ">
+              {"  "}
               Skills
-            </span>
-            <span>Education</span>
-            <span>Experience</span>
+              {"  "}
+            </TabButton>
           </div>
         </div>
       </div>
