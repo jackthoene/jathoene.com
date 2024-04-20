@@ -2,9 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import ButtonGroup from "./ButtonGroup";
+import SocialIcons from "./SocialIcons";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // Add isHovered state
 
   useEffect(() => {
     setIsLoaded(true);
@@ -56,12 +59,8 @@ const HeroSection = () => {
               I'm glad you made it here | Let's build something great together
             </p>
             <div className="flex justify-end">
-              <button className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-green-500 to-blue-500 hover:bg-slate-200 text-black">
-                Hire me
-              </button>
-              <button className="px-6 py-3 rounded-full bg-gradient-to-br from-green-500 to-blue-500 hover:bg-slate-800 text-white">
-                Download CV
-              </button>
+              <ButtonGroup />
+              <SocialIcons isHovered={isHovered} />
             </div>
           </div>
         </div>
