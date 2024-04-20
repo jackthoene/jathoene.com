@@ -7,54 +7,55 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
-    image: "/Images/Me_sitting.jpg",
+    title: "React/ Next.js Portfolio Website",
+    description: "This personal website. Clone it on github",
+    image: "/Images/Portfolio.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
-    image: "/Images/Me_sitting.jpg",
+    title: "Photography Portfolio",
+    description: "A collection of my best works",
+    image: "/Images/photography.jpg",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 3,
-    title: "E-commerce Application",
+    title: "Real-Time E-commerce Application",
     description: "Project 3 description",
-    image: "/Images/Me_sitting.jpg",
+    image: "/Images/coming-soon.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/Images/Me_sitting.jpg",
+    title: "TAK HLZ Prediction Application",
+    description: "Predicting Helicopter Landing Zones using K-Means Clustering",
+    image: "/Images/coming-soon.png",
     tag: ["All", "Mobile"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/Images/Me_sitting.jpg",
+    title: "Wifi-Enabled Webcam",
+    description:
+      "Our first foray into PCB design and real-time microcontroller applications",
+    image: "/Images/coming-soon.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/Images/Me_sitting.jpg",
+    title: "Not-So-Smartwatch",
+    description: "A smartwatch with AWS-driven computervision",
+    image: "/Images/coming-soon.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
@@ -82,7 +83,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        Personal Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
