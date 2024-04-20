@@ -108,7 +108,7 @@ const ResearchSection = () => {
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.15 }}
           >
             <ResearchCard
               key={research.id}

@@ -14,7 +14,7 @@ const HeroSection = () => {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1.5 }}
       className="relative h-screen"
       style={{
         backgroundImage: "url('/Images/hero-image.jpg')",

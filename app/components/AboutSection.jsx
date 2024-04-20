@@ -1,12 +1,13 @@
 "use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Skills",
-    id: "skills",
+    title: "Military",
+    id: "military",
     content: (
       <ul className="list-disc pl-2">
         <li>Item 1</li>
@@ -17,8 +18,8 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "Education",
-    id: "education",
+    title: "Civilian",
+    id: "civilian",
     content: (
       <ul className="list-disc pl-2">
         <li>Item 5</li>
@@ -29,8 +30,8 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "Certifications",
-    id: "certifications",
+    title: "Volunteer",
+    id: "volunteer",
     content: (
       <ul className="list-disc pl-2">
         <li>Item 9</li>
@@ -43,7 +44,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("military"); // Default tab set to "military"
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -53,7 +54,12 @@ const AboutSection = () => {
   };
 
   return (
-    <section className=" text-white">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="text-white"
+    >
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px16">
         <Image
           src="/hero-image.jpg"
@@ -62,31 +68,53 @@ const AboutSection = () => {
           height={500}
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">
+            My work history
+          </h2>
           <p className="text-base med:text-lg">
-            A brief description of me yayayayayayayayayayayayayaya
+            • Versatile Engineer and Researcher experienced in a range of skills
+            including Full Stack Engineering, Low Power Circuit Design, FPGA and
+            ASIC design, Network Engineering, Cybersecurity, and Additive
+            Manufacturing
+          </p>
+          <p className="text-base med:text-lg">
+            • US Marine Corps Communications Officer: 7 Years of experience
+            leading technical and innovative teams from the front
+          </p>
+          <p className="text-base med:text-lg">
+            • Decisive leadership style that quickly moves from problem
+            identification, analysis, bias for action and delivery of results.
+          </p>
+          <p className="text-base med:text-lg">
+            • Dedicated to a sustainable future: researching new, innovative
+            ways of computing and circularity in consumer-level products for a
+            future that is more compatible with our surrounding environments
+          </p>
+          <p className="text-base med:text-lg">
+            • Avid volunteer: 200 hours spent supporting Veterans non-profits
+            and teaching engineering to low-opportunity demographics
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
+              selectTab={() => handleTabChange("military")}
+              active={tab === "military"}
             >
               {" "}
-              Education{" "}
+              Military{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
+              selectTab={() => handleTabChange("civilian")}
+              active={tab === "civilian"}
             >
               {" "}
-              Certifications{" "}
+              Civilian{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
+              selectTab={() => handleTabChange("volunteer")}
+              active={tab === "volunteer"}
             >
               {"  "}
-              Skills
+              Volunteer
               {"  "}
             </TabButton>
           </div>
@@ -95,7 +123,7 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
