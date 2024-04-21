@@ -1,4 +1,4 @@
-"use client";
+"use client"; // HeroSection.js
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -7,7 +7,7 @@ import SocialIcons from "./SocialIcons";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false); // Add isHovered state
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -25,7 +25,6 @@ const HeroSection = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* <div className="absolute inset-0 bg-[#181818] opacity-75"> */}
       <div>{/* Overlay */}</div>
       <div className="grid grid-cols-1 sm:grid-cols-12 relative h-full z-10">
         <div className="col-span-7 place-self-center text-center sm:text-left">
@@ -59,9 +58,9 @@ const HeroSection = () => {
               I'm glad you made it here | Let's build something great together
             </p>
             <div className="flex justify-end">
-              <ButtonGroup />
-              <SocialIcons isHovered={isHovered} />
+              <ButtonGroup setIsHovered={setIsHovered} />
             </div>
+            <SocialIcons isHovered={isHovered} setIsHovered={setIsHovered} />
           </div>
         </div>
         <div className="col-span-5 hidden sm:block"></div>

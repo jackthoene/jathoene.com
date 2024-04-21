@@ -1,29 +1,42 @@
-import React, { useState } from "react";
+// ButtonGroup.js
+import React from "react";
 
-const ButtonGroup = () => {
-  const [MouseOver, setMouseOver] = useState(false);
-
+const ButtonGroup = ({ setIsHovered }) => {
   const handleDownloadClick = () => {
-    console.log("Download button clicked!");
-    // Add your desired behavior for download button click event here
+    // Replace the URL with the correct path to your CV file
+    const cvUrl = "/Assets/Jack_Thoene_Resume.docx";
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = cvUrl;
+
+    // Set the download attribute to specify the file name when downloaded
+    link.download = "Jack_Thoene_Resume.docx";
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Programmatically trigger a click event on the link
+    link.click();
+
+    // Clean up by removing the link from the body
+    document.body.removeChild(link);
   };
+
   const handleMouseOver = () => {
-    console.log("MouseOver");
-    setMouseOver(true);
-    // Add your desired behavior for download button click event here
+    setIsHovered(true);
   };
+
   const handleMouseOut = () => {
-    console.log("MouseOut");
-    setMouseOver(false);
-    // Add your desired behavior for download button click event here
+    setIsHovered(false);
   };
 
   return (
     <div className="flex justify-end">
       <button
         className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-green-500 to-blue-500 hover:bg-slate-200 text-black"
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
+        onMouseEnter={handleMouseOver}
+        onMouseLeave={handleMouseOut}
       >
         My Links
       </button>
