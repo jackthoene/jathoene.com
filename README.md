@@ -1,3 +1,7 @@
+CS 396 Full Stack Engineering Project 1
+
+Link to design doc: https://docs.google.com/document/d/1ywArx5ec2oK6anOCUsF0BqOVt_lICTaWtl9EJpaA9_Q/edit?usp=sharing
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
