@@ -6,45 +6,61 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Military",
-    id: "military",
+    title: "Formal",
+    id: "Formal",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
+        <li>
+          2014 - 2018: B.S. Control Systems and Robotics - U.S. Naval Academy
+        </li>
+        <li>
+          2023 - 2025: M.S. Electrical Engineering - Northwestern University
+        </li>
       </ul>
     ),
   },
   {
-    title: "Civilian",
-    id: "civilian",
+    title: "Certifications",
+    id: "Certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 5</li>
-        <li>Item 6</li>
-        <li>Item 7</li>
-        <li>Item 8</li>
+        <li>Security Plus - Comptia</li>
+        <li> Data Scientist in Python - DataCamp</li>
+        {/* <li>Security Plus - Comptia</li>
+        <li>Certified Ethical Hacker - ECCouncil</li>
+        <li>Project Management Professional - PMI</li>
+        <li>Fundamentals of Engineering, Electrical and Computer - NCEES</li> */}
       </ul>
     ),
   },
   {
-    title: "Volunteer",
-    id: "volunteer",
+    title: "Other",
+    id: "Other",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 9</li>
-        <li>Item 10</li>
-        <li>Item 11</li>
-        <li>Item 12</li>
+        <li>
+          Basic Officer&apos;s Course - U.S. Marine Corps Base Quantico,
+          Virginia - 2018 - 2019
+        </li>
+        <li>
+          Basic Communication&apos;s Officer Course - Marine Air Ground Combat
+          Center Twentynine Palms, California - 2019
+        </li>
+        <li>
+          Winter Mountain Leader&apos;s Course - USMC Mountain Warfare Training
+          Center, Bridgeport, California - 2021
+        </li>
+        <li>
+          Mountain Communications Course - USMC Mountain Warfare Training
+          Center, Bridgeport, California - 2021
+        </li>
       </ul>
     ),
   },
 ];
 
 const EducationSection = () => {
-  const [tab, setTab] = useState("military"); // Default tab set to "military"
+  const [tab, setTab] = useState("Formal"); // Default tab set to "military"
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -71,50 +87,28 @@ const EducationSection = () => {
           <h2 className="text-4xl font-bold text-white mb-4">
             My Education history
           </h2>
-          <p className="text-base med:text-lg">
-            • Versatile Engineer and Researcher experienced in a range of skills
-            including Full Stack Engineering, Low Power Circuit Design, FPGA and
-            ASIC design, NetEducation Engineering, Cybersecurity, and Additive
-            Manufacturing
-          </p>
-          <p className="text-base med:text-lg">
-            • US Marine Corps Communications Officer: 7 Years of experience
-            leading technical and innovative teams from the front
-          </p>
-          <p className="text-base med:text-lg">
-            • Decisive leadership style that quickly moves from problem
-            identification, analysis, bias for action and delivery of results.
-          </p>
-          <p className="text-base med:text-lg">
-            • Dedicated to a sustainable future: researching new, innovative
-            ways of computing and circularity in consumer-level products for a
-            future that is more compatible with our surrounding environments
-          </p>
-          <p className="text-base med:text-lg">
-            • Avid volunteer: 200 hours spent supporting Veterans non-profits
-            and teaching engineering to low-opportunity demographics
-          </p>
+
           <div className="flex flex-row mt-8">
             <TabButton
-              selectTab={() => handleTabChange("military")}
-              active={tab === "military"}
+              selectTab={() => handleTabChange("Formal")}
+              active={tab === "Formal"}
             >
               {" "}
-              Military{" "}
+              Formal{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("civilian")}
-              active={tab === "civilian"}
+              selectTab={() => handleTabChange("Certifications")}
+              active={tab === "Certifications"}
             >
               {" "}
-              Civilian{" "}
+              Certifications{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("volunteer")}
-              active={tab === "volunteer"}
+              selectTab={() => handleTabChange("Other")}
+              active={tab === "Other"}
             >
               {"  "}
-              Volunteer
+              Other
               {"  "}
             </TabButton>
           </div>

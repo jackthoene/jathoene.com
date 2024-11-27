@@ -7,62 +7,146 @@ import { motion, useInView } from "framer-motion";
 const researchData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "research 1 description",
+    title: "Smartwatch with Face-Unlock",
+    description: "EE327 - Electronic System Design II",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "research 2 description",
+    title: "Convolutional Neural Processor for Binary Image Classification ",
+    description:
+      "CE 493 -Advanced Low Power Digital and Mixed-signal Integrated Circuit Design",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "research 3 description",
+    title: "Wifi-Enabled Webcam",
+    description: "EE326 - Electronic System Design I",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "research 4 description",
+    title: "Optimization of Helicopter Landing Zone Selection",
+    description:
+      "EE475 - Machine Learning: Foundations, Applications, and Algorithms",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
+    title: "Bill Splitting and Payment App",
+    description: "CS303 - Full Stack Software Engineering",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 6,
-    title: "Full-stack Roadmap",
-    description: "research 5 description",
+    title: "Novel Sensor for Precision Agriculture",
+    description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Research"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 7,
+    title: "Intermittent Computing",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Research"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 8,
+    title: "FSEA",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Research"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 9,
+    title: "Novel Battery System",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Research"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 10,
+    title: "Novel 'Plant Wearable'",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Research"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+
+  {
+    id: 15,
+    title: "FPGA-Based FM Radio",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: [
+      "All",
+      "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
+    ],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 16,
+    title: "FPGA Matrix Multiplication",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: [
+      "All",
+      "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
+    ],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 17,
+    title: "FPGA Motion Detection Camera",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: [
+      "All",
+      "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
+    ],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 18,
+    title: "Mixed Signal NFC Temperature Sensor in 45nm CMOS",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "CE392 - VLSI Systems Design Projects"],
     gitUrl: "/",
     previewUrl: "/",
   },
 ];
 
 const ResearchSection = () => {
-  const [tag, setTag] = useState("All");
+  const [tag, setTag] = useState("Research");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -82,7 +166,7 @@ const ResearchSection = () => {
   return (
     <section id="research">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My research
+        Research, Engineering, and Other Projects
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ResearchTag
@@ -92,13 +176,13 @@ const ResearchSection = () => {
         />
         <ResearchTag
           onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
+          name="Research"
+          isSelected={tag === "Research"}
         />
         <ResearchTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Class Projects"
+          isSelected={tag === "Class Projects"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">

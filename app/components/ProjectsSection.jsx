@@ -6,57 +6,75 @@ import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
-    id: 1,
-    title: "React/ Next.js Portfolio Website",
-    description: "This personal website. Clone it on github",
-    image: "/Images/Portfolio.png",
-    tag: ["All", "Web"],
+    id: 11,
+    title: "Running Doom on a Polycom",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Cybersecurity"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
-    id: 2,
+    id: 12,
+    title: "Transparent display from a recycled monitor",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Hardware"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 13,
+    title: "Supercomputer from repurposed stack of Playstation 3s",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Hardware"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 14,
+    title: "Home Network VPN Server from repurposed Playstation 3",
+    description: "Publishing Soon!",
+    image: "/Images/coming-soon.png",
+    tag: ["All", "Hardware"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+
+  {
+    id: 19,
+    title: "React & Next.js Portfolio Website",
+    description: "This personal website. Clone it on git",
+    image: "/Images/Portfolio.png",
+    tag: ["All", "Software"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 20,
     title: "Photography Portfolio",
     description: "A collection of my best works",
-    image: "/Images/photography.jpg",
-    tag: ["All", "Web"],
+    image: "/Images/Photography.JPG",
+    tag: ["All", "Other"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
-    id: 3,
-    title: "Real-Time E-commerce Application",
-    description: "Project 3 description",
+    id: 21,
+    title: "Tig Welded Coffee Table",
+    description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Other"],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
-    id: 4,
-    title: "TAK HLZ Prediction Application",
-    description: "Predicting Helicopter Landing Zones using K-Means Clustering",
+    id: 22,
+    title: "Inexpensive, Locally Sourced, 1Kg lift quadcopter",
+    description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 5,
-    title: "Wifi-Enabled Webcam",
-    description:
-      "Our first foray into PCB design and real-time microcontroller applications",
-    image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 6,
-    title: "Not-So-Smartwatch",
-    description: "A smartwatch with AWS-driven computervision",
-    image: "/Images/coming-soon.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Other"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -93,13 +111,23 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
+          name="Software"
+          isSelected={tag === "Software"}
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Hardware"
+          isSelected={tag === "Hardware"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Cybersecurity"
+          isSelected={tag === "Cybersecurity"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Other"
+          isSelected={tag === "Other"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">

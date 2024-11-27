@@ -31,7 +31,7 @@ const HeroSection = () => {
           <div className="text-right absolute top-0 right-0 mt-20 mr-10">
             <h1 className="text-white mb-4 text-xl lg:text-6xl font-extrabold">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
-                Hello, I'm{" "}
+                Hello, I&apos;m{" "}
               </span>
               <br></br>
               <div className="text-right">
@@ -55,7 +55,8 @@ const HeroSection = () => {
               </div>
             </h1>
             <p className="text-[#302e2e] text-base sm:text-lg mb-6 lg:text-xl">
-              I'm glad you made it here | Let's build something great together
+              I&apos;m glad you made it here | Let&apos;s build something great
+              together
             </p>
             <div className="flex justify-end">
               <ButtonGroup setIsHovered={setIsHovered} />

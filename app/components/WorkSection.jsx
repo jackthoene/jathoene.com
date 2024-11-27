@@ -10,10 +10,12 @@ const TAB_DATA = [
     id: "military",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
+        <li>
+          &quot;Marine Coder&quot;, Marine Innovation Unit - 2023 - Present
+        </li>
+        <li>Company Commander, CLR-17 Service Company</li>
+        <li>Executive Officer, 1st MLG Communications Company</li>
+        <li>Communications Officer, CLR-17, 1st MLG, Camp Pendleton</li>
       </ul>
     ),
   },
@@ -22,10 +24,10 @@ const TAB_DATA = [
     id: "civilian",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 5</li>
-        <li>Item 6</li>
-        <li>Item 7</li>
-        <li>Item 8</li>
+        <li>
+          Graduate Researcher - VAK Sustainable Computing Lab - 2023 - Present
+        </li>
+        <li>Cyber Security Engineer (DoD Skillbridge) - 2023</li>
       </ul>
     ),
   },
@@ -34,17 +36,22 @@ const TAB_DATA = [
     id: "volunteer",
     content: (
       <ul className="list-disc pl-2">
-        <li>Item 9</li>
-        <li>Item 10</li>
-        <li>Item 11</li>
-        <li>Item 12</li>
+        <li>
+          Director of Information Technology - Patrol Base Abbate - 2023 -
+          Present
+        </li>
+        <li>Feature Editor, XRDS, ACM - 2024 - Present</li>
+        <li>
+          Curriculum Developer and Mentor, Science Mentorship Institute - 2024
+        </li>
+        <li>Tech Support Volunteer, Omaha Library - 2023</li>
       </ul>
     ),
   },
 ];
 
 const WorkSection = () => {
-  const [tab, setTab] = useState("military"); // Default tab set to "military"
+  const [tab, setTab] = useState("civilian"); // Default tab set to "military"
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
