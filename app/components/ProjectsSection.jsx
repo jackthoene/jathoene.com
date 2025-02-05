@@ -19,7 +19,7 @@ const projectsData = [
     title: "Transparent display from a recycled monitor",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: [],
+    tag: ["All", "Hardware"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -28,7 +28,7 @@ const projectsData = [
     title: "Supercomputer from repurposed stack of Playstation 3s",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: [],
+    tag: ["All", "Hardware"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -41,11 +41,10 @@ const projectsData = [
     gitUrl: "/",
     previewUrl: "/",
   },
-
   {
     id: 19,
     title: "React & Next.js Portfolio Website",
-    description: "This personal website. Clone it on git",
+    description: "This personal website. Clone it on GitHub.",
     image: "/Images/Portfolio.png",
     tag: ["All", "Software"],
     gitUrl: "/",
@@ -81,7 +80,7 @@ const projectsData = [
 ];
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
+  const [tag, setTag] = useState("All"); // Default to show all projects
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -99,11 +98,13 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+    <section id="projects" className="py-12 bg-[#121212]">
+      <h2 className="text-center text-4xl font-bold text-white mb-8 md:mb-12">
         Personal Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+
+      {/* Tag Filters */}
+      <div className="text-white flex flex-wrap justify-center items-center gap-4 mb-8">
         <ProjectTag
           onClick={handleTagChange}
           name="All"
@@ -130,17 +131,23 @@ const ProjectsSection = () => {
           isSelected={tag === "Other"}
         />
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+
+      {/* Responsive Grid */}
+      <ul
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-10 lg:px-16 mb-12"
+        style={{ gridAutoRows: "1fr" }} // Ensures equal row heights
+      >
         {filteredProjects.map((project, index) => (
           <motion.li
             key={index}
+            className="flex flex-col h-full" // Ensures consistent height
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.15 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}

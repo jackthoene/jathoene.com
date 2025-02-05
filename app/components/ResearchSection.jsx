@@ -4,6 +4,7 @@ import ResearchCard from "./ResearchCard";
 import ResearchTag from "./ResearchTag";
 import { motion, useInView } from "framer-motion";
 
+// Research data
 const researchData = [
   {
     id: 1,
@@ -17,9 +18,9 @@ const researchData = [
   },
   {
     id: 2,
-    title: "Convolutional Neural Processor for Binary Image Classification ",
+    title: "Convolutional Neural Processor for Binary Image Classification",
     description:
-      "CE 493 -Advanced Low Power Digital and Mixed-signal Integrated Circuit Design",
+      "CE 493 - Advanced Low Power Digital and Mixed-signal Integrated Circuit Design",
     image: "/Images/393.png",
     tag: ["All", "Class Projects"],
     gitUrl: "/",
@@ -98,7 +99,6 @@ const researchData = [
     gitUrl: "/",
     previewUrl: "/",
   },
-
   {
     id: 15,
     title: "FPGA-Based FM Radio",
@@ -109,15 +109,6 @@ const researchData = [
       "All",
       "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
     ],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 16,
-    title: "",
-    description: "Publishing Soon!",
-    image: "/Images/coming-soon.png",
-    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -145,7 +136,7 @@ const researchData = [
 ];
 
 const ResearchSection = () => {
-  const [tag, setTag] = useState("Research");
+  const [tag, setTag] = useState("All"); // Default to show all projects
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -167,7 +158,9 @@ const ResearchSection = () => {
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
         Research, Engineering, and Other Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+
+      {/* Tags Section */}
+      <div className="text-white flex flex-row justify-center items-center gap-4 py-6">
         <ResearchTag
           onClick={handleTagChange}
           name="All"
@@ -184,7 +177,12 @@ const ResearchSection = () => {
           isSelected={tag === "Class Projects"}
         />
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+
+      {/* Responsive Grid */}
+      <ul
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0"
+      >
         {filteredresearch.map((research, index) => (
           <motion.li
             key={index}
@@ -194,7 +192,6 @@ const ResearchSection = () => {
             transition={{ duration: 0.3, delay: index * 0.15 }}
           >
             <ResearchCard
-              key={research.id}
               title={research.title}
               description={research.description}
               imgUrl={research.image}
