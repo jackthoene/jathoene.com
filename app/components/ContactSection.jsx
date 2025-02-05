@@ -10,7 +10,7 @@ const TAB_DATA = [
     id: "military",
     content: (
       <ul className="list-disc pl-2">
-        <li>jack (dot) thoene.usmc.mil</li>
+        <li>jack (dot) thoene (at) usmc.mil</li>
       </ul>
     ),
   },

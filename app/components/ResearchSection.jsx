@@ -8,8 +8,9 @@ const researchData = [
   {
     id: 1,
     title: "Smartwatch with Face-Unlock",
-    description: "EE327 - Electronic System Design II",
-    image: "/Images/coming-soon.png",
+    description:
+      "EE327 - Electronic System Design II. Project in V.2. ETA: Summer 2025",
+    image: "/Images/Smartwatch.jpg",
     tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
@@ -19,7 +20,7 @@ const researchData = [
     title: "Convolutional Neural Processor for Binary Image Classification ",
     description:
       "CE 493 -Advanced Low Power Digital and Mixed-signal Integrated Circuit Design",
-    image: "/Images/coming-soon.png",
+    image: "/Images/393.png",
     tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
@@ -38,7 +39,7 @@ const researchData = [
     title: "Optimization of Helicopter Landing Zone Selection",
     description:
       "EE475 - Machine Learning: Foundations, Applications, and Algorithms",
-    image: "/Images/coming-soon.png",
+    image: "/Images/Single_Polygon.png",
     tag: ["All", "Class Projects"],
     gitUrl: "/",
     previewUrl: "/",
@@ -55,7 +56,7 @@ const researchData = [
   {
     id: 6,
     title: "Novel Sensor for Precision Agriculture",
-    description: "Publishing Soon!",
+    description: "Publishing Soon! ETA: Spring 2025",
     image: "/Images/coming-soon.png",
     tag: ["All", "Research"],
     gitUrl: "/",
@@ -66,7 +67,7 @@ const researchData = [
     title: "Intermittent Computing",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Research"],
+    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -75,7 +76,7 @@ const researchData = [
     title: "FSEA",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Research"],
+    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -84,7 +85,7 @@ const researchData = [
     title: "Novel Battery System",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Research"],
+    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -93,7 +94,7 @@ const researchData = [
     title: "Novel 'Plant Wearable'",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: ["All", "Research"],
+    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -101,8 +102,9 @@ const researchData = [
   {
     id: 15,
     title: "FPGA-Based FM Radio",
-    description: "Publishing Soon!",
-    image: "/Images/coming-soon.png",
+    description:
+      "CE 387 - Real-Time Digital Systems Design and Verification with FPGAs",
+    image: "/Images/387Radio.png",
     tag: [
       "All",
       "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
@@ -112,19 +114,16 @@ const researchData = [
   },
   {
     id: 16,
-    title: "FPGA Matrix Multiplication",
+    title: "",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
-    tag: [
-      "All",
-      "CE387 - Real-Time Digital Systems Design and Verification with FPGAs",
-    ],
+    tag: [],
     gitUrl: "/",
     previewUrl: "/",
   },
   {
     id: 17,
-    title: "FPGA Motion Detection Camera",
+    title: "FPGA - Sobel Edge Detection for Motion Sensing",
     description: "Publishing Soon!",
     image: "/Images/coming-soon.png",
     tag: [
@@ -138,7 +137,7 @@ const researchData = [
     id: 18,
     title: "Mixed Signal NFC Temperature Sensor in 45nm CMOS",
     description: "Publishing Soon!",
-    image: "/Images/coming-soon.png",
+    image: "/Images/CMOS392.png",
     tag: ["All", "CE392 - VLSI Systems Design Projects"],
     gitUrl: "/",
     previewUrl: "/",

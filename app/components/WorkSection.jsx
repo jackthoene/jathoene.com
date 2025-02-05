@@ -79,11 +79,16 @@ const WorkSection = () => {
             My work history
           </h2>
           <p className="text-base med:text-lg">
-            • Versatile Engineer and Researcher experienced in a range of skills
-            including Full Stack Engineering, Low Power Circuit Design, FPGA and
-            ASIC design, Network Engineering, Cybersecurity, and Additive
-            Manufacturing
+            I like to build things, and I think creating with any technology
+            should be accessible to all. The work you will find on this page can
+            be broken down into a few categories:
           </p>
+          <br></br>
+          <p> • Projects to learn how a technology works</p>
+          <p> • Projects to make our world easier or safer</p>
+          <p> • Projects to make tech cheaper and more accessible</p>
+
+          {/* <br></br>
           <p className="text-base med:text-lg">
             • US Marine Corps Communications Officer: 7 Years of experience
             leading technical and innovative teams from the front
@@ -100,7 +105,7 @@ const WorkSection = () => {
           <p className="text-base med:text-lg">
             • Avid volunteer: 200 hours spent supporting Veterans non-profits
             and teaching engineering to low-opportunity demographics
-          </p>
+          </p> */}
           <div className="flex flex-row mt-8">
             <TabButton
               selectTab={() => handleTabChange("military")}

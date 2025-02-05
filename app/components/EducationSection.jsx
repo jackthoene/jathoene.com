@@ -16,6 +16,7 @@ const TAB_DATA = [
         <li>
           2023 - 2025: M.S. Electrical Engineering - Northwestern University
         </li>
+        <li>Upcoming: Ph.D Computer Engineering - Northwestern University</li>
       </ul>
     ),
   },
@@ -43,16 +44,15 @@ const TAB_DATA = [
           Virginia - 2018 - 2019
         </li>
         <li>
-          Basic Communication&apos;s Officer Course - Marine Air Ground Combat
-          Center Twentynine Palms, California - 2019
+          Basic Communication&apos;s Officer Course - MCAGCC Twentynine Palms,
+          CA - 2019
         </li>
         <li>
-          Winter Mountain Leader&apos;s Course - USMC Mountain Warfare Training
-          Center, Bridgeport, California - 2021
+          Winter Mountain Leader&apos;s Course - USMC MWTC, Bridgeport, CA -
+          2021
         </li>
         <li>
-          Mountain Communications Course - USMC Mountain Warfare Training
-          Center, Bridgeport, California - 2021
+          Mountain Communications Course - USMC MWTC, Bridgeport, CA - 2021
         </li>
       </ul>
     ),
