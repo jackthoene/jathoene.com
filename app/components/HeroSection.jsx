@@ -1,62 +1,99 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+import React, { useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-const HeroSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend
+);
+
+const SensorSection = () => {
+  const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const path = window.location.pathname;
+    const raw = path.split("/sensor/")[1];
+    if (!raw) return;
+
+    const nums = raw.split(",").map(parseFloat);
+    const data = [];
+    for (let i = 0; i < nums.length; i += 2) {
+      data.push({ x: nums[i], y: nums[i + 1] });
+    }
+
+    setChartData({
+      datasets: [
+        {
+          label: "Sensor Data",
+          data: data,
+          fill: false,
+          borderColor: "#4fd1c5",
+          backgroundColor: "#4fd1c5",
+          tension: 0.3,
+        },
+      ],
+    });
   }, []);
 
-  return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="relative w-full min-h-screen pt-20" // Adjust padding to account for navbar height
-      style={{
-        backgroundImage: "url('/Images/hero-image.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { mode: "nearest", intersect: false },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Time (s)",
+          color: "#ccc",
+        },
+        ticks: { color: "#ccc" },
+        grid: { color: "#333" },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Voltage (V)",
+          color: "#ccc",
+        },
+        min: 0,
+        max: 3.5,
+        ticks: { color: "#ccc" },
+        grid: { color: "#333" },
+      },
+    },
+  };
 
-      {/* Top-right text container */}
-      <div className="absolute top-24 right-10 z-10 text-right">
-        <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
-            Hello, I&apos;m{" "}
-          </span>
-          <TypeAnimation
-            sequence={[
-              "Jack",
-              1000,
-              "A Mountaineer",
-              1000,
-              "A Marine",
-              1000,
-              "An Engineer",
-              1000,
-              "A Researcher",
-              1000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-          />
-        </h1>
-        <p className="text-gray-300 text-base sm:text-lg mt-4">
-          I&apos;m glad you made it here | Let&apos;s build something great
-          together
-        </p>
+  return (
+    <section className="w-full py-10 bg-black text-white">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Sensor Plot from URL
+        </h2>
+        {chartData ? (
+          <Line data={chartData} options={options} />
+        ) : (
+          <p className="text-center text-gray-400">No sensor data found in URL.</p>
+        )}
       </div>
-    </motion.section>
+    </section>
   );
 };
 
-export default HeroSection;
+export default SensorSection;
