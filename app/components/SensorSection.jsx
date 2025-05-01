@@ -68,7 +68,7 @@ const SensorSection = () => {
     scales: {
       x: {
         type: "linear",
-        title: { display: true, text: "Time (s)", color: "#ccc" },
+        title: { display: true, text: "Time (h)", color: "#ccc" },
         ticks: { color: "#ccc" },
         grid: { color: "#333" },
       },
@@ -85,8 +85,8 @@ const SensorSection = () => {
   return (
     <section className="w-full py-10 bg-black text-white">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          Sensor Plot
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          Last 24 Hours of Metabolism
         </h2>
         {loading ? (
           <p className="text-center text-gray-400 animate-pulse">Loading plot...</p>
