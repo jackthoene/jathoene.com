@@ -74,14 +74,13 @@ const SensorSection = () => {
       },
       y: {
         title: { display: true, text: "Voltage (V)", color: "#ccc" },
-        min: 0,
-        max: 3.5,
         ticks: { color: "#ccc" },
         grid: { color: "#333" },
+        // removed min: 0, max: 3.5 to allow auto-scaling
       },
-    }
-    
+    },
   };
+  
 
   return (
     <section className="w-full py-10 bg-black text-white">
