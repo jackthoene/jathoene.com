@@ -27,6 +27,8 @@ const SensorSection = () => {
   const searchParams = useSearchParams();
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [startHour, setStartHour] = useState(null);
+  const [endHour, setEndHour] = useState(null);
 
   useEffect(() => {
     const raw = searchParams.get("d");
@@ -48,6 +50,11 @@ const SensorSection = () => {
         if (Number.isFinite(x) && Number.isFinite(y)) {
           data.push({ x, y });
         }
+      }
+
+      if (data.length > 0) {
+        setStartHour(data[0].x);
+        setEndHour(data[data.length - 1].x);
       }
 
       setChartData({
@@ -81,9 +88,9 @@ const SensorSection = () => {
           color: "#ccc",
           callback: function (val) {
             const hour = Math.floor(val) % 24;
-            const day = Math.floor(val / 24);
+            const day = Math.floor(val / 24) - 2; // D-2 = midnight two days ago
             const label = `${hour.toString().padStart(2, "0")}:00`;
-            return day > 0 ? `D${day} ${label}` : label;
+            return `D${day} ${label}`;
           },
         },
         grid: { color: "#333" },
@@ -100,7 +107,7 @@ const SensorSection = () => {
     <section className="w-full py-10 bg-black text-white">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-2 text-center">
-          Last {chartData?.datasets[0]?.data.length ?? 0} Readings
+          Sensor Data: {startHour}–{endHour} Hours (Midnight D-2 → Midnight D0)
         </h2>
         {loading ? (
           <p className="text-center text-gray-400 animate-pulse">Loading plot...</p>
