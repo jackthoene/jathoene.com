@@ -37,9 +37,18 @@ const SensorSection = () => {
 
   try {
     const nums = JSON.parse(raw);
-    if (!Array.isArray(nums)) throw new Error("Invalid data");
+    if (!Array.isArray(nums) || nums.length % 2 !== 0) {
+      throw new Error("Expected even-length array of [x, y] pairs");
+    }
 
-    const data = nums.map((y, index) => ({ x: index, y }));
+    const data = [];
+    for (let i = 0; i < nums.length; i += 2) {
+      const x = parseFloat(nums[i]);
+      const y = parseFloat(nums[i + 1]);
+      if (Number.isFinite(x) && Number.isFinite(y)) {
+        data.push({ x, y });
+      }
+    }
 
     setChartData({
       datasets: [
@@ -58,6 +67,7 @@ const SensorSection = () => {
     setLoading(false);
   }
 }, [searchParams]);
+
 
 
   const options = {
