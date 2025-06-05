@@ -31,7 +31,8 @@ const SensorSection = () => {
   const [endHour, setEndHour] = useState(null);
 
   useEffect(() => {
-    const raw = searchParams.get("d");
+    const raw = decodeURIComponent(searchParams.get("d") ?? "");
+
     if (!raw) {
       setLoading(false);
       return;
