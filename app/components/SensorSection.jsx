@@ -29,36 +29,36 @@ const SensorSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const raw = searchParams.get("d");
-    if (!raw) {
-      setLoading(false);
-      return;
-    }
+  const raw = searchParams.get("d");
+  if (!raw) {
+    setLoading(false);
+    return;
+  }
 
-    try {
-      const nums = JSON.parse(raw);
-      const data = [];
-      for (let i = 0; i < nums.length; i += 2) {
-        data.push({ x: nums[i], y: nums[i + 1] });
-      }
+  try {
+    const nums = JSON.parse(raw);
+    if (!Array.isArray(nums)) throw new Error("Invalid data");
 
-      setChartData({
-        datasets: [
-          {
-            label: "Sensor Data",
-            data,
-            borderColor: "#4fd1c5",
-            backgroundColor: "#4fd1c5",
-            tension: 0.3,
-          },
-        ],
-      });
-    } catch (e) {
-      console.error("Invalid data format", e);
-    } finally {
-      setLoading(false);
-    }
-  }, [searchParams]);
+    const data = nums.map((y, index) => ({ x: index, y }));
+
+    setChartData({
+      datasets: [
+        {
+          label: "Sensor Data",
+          data,
+          borderColor: "#4fd1c5",
+          backgroundColor: "#4fd1c5",
+          tension: 0.3,
+        },
+      ],
+    });
+  } catch (e) {
+    console.error("Invalid data format", e);
+  } finally {
+    setLoading(false);
+  }
+}, [searchParams]);
+
 
   const options = {
     responsive: true,
