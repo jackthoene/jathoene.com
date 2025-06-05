@@ -29,46 +29,44 @@ const SensorSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  const raw = searchParams.get("d");
-  if (!raw) {
-    setLoading(false);
-    return;
-  }
-
-  try {
-    const nums = JSON.parse(raw);
-    if (!Array.isArray(nums) || nums.length % 2 !== 0) {
-      throw new Error("Expected even-length array of [x, y] pairs");
+    const raw = searchParams.get("d");
+    if (!raw) {
+      setLoading(false);
+      return;
     }
 
-    const data = [];
-    for (let i = 0; i < nums.length; i += 2) {
-      const x = parseFloat(nums[i]);
-      const y = parseFloat(nums[i + 1]);
-      if (Number.isFinite(x) && Number.isFinite(y)) {
-        data.push({ x, y });
+    try {
+      const nums = JSON.parse(raw);
+      if (!Array.isArray(nums) || nums.length % 2 !== 0) {
+        throw new Error("Expected even-length array of [x, y] pairs");
       }
+
+      const data = [];
+      for (let i = 0; i < nums.length; i += 2) {
+        const x = parseFloat(nums[i]);
+        const y = parseFloat(nums[i + 1]);
+        if (Number.isFinite(x) && Number.isFinite(y)) {
+          data.push({ x, y });
+        }
+      }
+
+      setChartData({
+        datasets: [
+          {
+            label: "Sensor Data",
+            data,
+            borderColor: "#4fd1c5",
+            backgroundColor: "#4fd1c5",
+            tension: 0.3,
+          },
+        ],
+      });
+    } catch (e) {
+      console.error("Invalid data format", e);
+    } finally {
+      setLoading(false);
     }
-
-    setChartData({
-      datasets: [
-        {
-          label: "Sensor Data",
-          data,
-          borderColor: "#4fd1c5",
-          backgroundColor: "#4fd1c5",
-          tension: 0.3,
-        },
-      ],
-    });
-  } catch (e) {
-    console.error("Invalid data format", e);
-  } finally {
-    setLoading(false);
-  }
-}, [searchParams]);
-
-
+  }, [searchParams]);
 
   const options = {
     responsive: true,
@@ -78,25 +76,31 @@ const SensorSection = () => {
     scales: {
       x: {
         type: "linear",
-        title: { display: true, text: "Time (h)", color: "#ccc" },
-        ticks: { color: "#ccc" },
+        title: { display: true, text: "Time (hh:mm)", color: "#ccc" },
+        ticks: {
+          color: "#ccc",
+          callback: function (val) {
+            const hour = Math.floor(val) % 24;
+            const day = Math.floor(val / 24);
+            const label = `${hour.toString().padStart(2, "0")}:00`;
+            return day > 0 ? `D${day} ${label}` : label;
+          },
+        },
         grid: { color: "#333" },
       },
       y: {
         title: { display: true, text: "Voltage (V)", color: "#ccc" },
         ticks: { color: "#ccc" },
         grid: { color: "#333" },
-        // removed min: 0, max: 3.5 to allow auto-scaling
       },
     },
   };
-  
 
   return (
     <section className="w-full py-10 bg-black text-white">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          Last 24 Hours of Metabolism
+        <h2 className="text-2xl font-bold mb-2 text-center">
+          Last {chartData?.datasets[0]?.data.length ?? 0} Readings
         </h2>
         {loading ? (
           <p className="text-center text-gray-400 animate-pulse">Loading plot...</p>
