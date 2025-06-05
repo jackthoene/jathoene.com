@@ -40,7 +40,7 @@ const SensorSection = () => {
     try {
       const nums = JSON.parse(raw);
       if (!Array.isArray(nums) || nums.length % 2 !== 0) {
-        throw new Error("Expected even-length array of [x, y] pairs");
+        throw new Error("Expected 48 (x, y) pairs (96 values total)");
       }
 
       const data = [];
@@ -88,9 +88,8 @@ const SensorSection = () => {
           color: "#ccc",
           callback: function (val) {
             const hour = Math.floor(val) % 24;
-            const day = Math.floor(val / 24) - 2; // D-2 = midnight two days ago
-            const label = `${hour.toString().padStart(2, "0")}:00`;
-            return `D${day} ${label}`;
+            const day = Math.floor(val / 24) - 2;
+            return `D${day} ${hour.toString().padStart(2, "0")}:00`;
           },
         },
         grid: { color: "#333" },
